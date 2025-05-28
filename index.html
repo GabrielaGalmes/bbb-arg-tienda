@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBB ARG</title>
+  <link rel="icon" type="imagenes" href="./imagenes/logo.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+  <header>
+    <div class="logo">
+      <a href="#inicio">
+        <img src="./imagenes/logo.png" alt="Logo de BBB ARG">
+      </a>
+      <span class="brand-name">BBB ARG</span>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#inicio" title="Inicio"><i class="fas fa-home"></i></a></li>
+        <li><a href="#sobre-nosotros" title="Sobre Nosotros"><i class="fas fa-info-circle"></i></a></li>
+        <li><a href="#productos" title="Productos"><i class="fas fa-shoe-prints"></i></a></li>
+        <li><a href="#reseñas" title="Reseñas"><i class="fas fa-star"></i></a></li>
+        <li><a href="#contacto" title="Formulario de Contacto"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="#carrito" title="Carrito de Compras"><i class="fas fa-shopping-cart"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    
+    <section id="inicio" class="section">
+      <div class="container text-center">
+        <h1>Bienvenidos a BBB ARG</h1>
+        <p>Bueno <span class="bonito">Bonito</span> <span class="barato">Barato</span></p>
+        <p class="provisorio">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, cum consectetur placeat temporibus vitae incidunt quia ducimus dolorem, deserunt corrupti, itaque sequi quidem atque explicabo. Non sunt maiores nam molestiae!</p>
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube.com/embed/NBOJEluJdwo?cc_load_policy=1" 
+            title="Video promocional de YouTube - Ejemplo" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-nosotros" class="section">
+      <div class="container">
+        <h2>Sobre Nosotros</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>¿Quiénes Somos?</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h3>¿Dónde Nos Encontrás?</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <br>
+              <a href="https://www.google.com/maps" target="_blank" class="map-link">
+                Ver en Google Maps <i class="fas fa-map-marker-alt"></i>
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13136.000000!2d-58.560000!3d-34.650000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM5JzAwLjAiUyA1OMKwMzMnMzYuMCJX!5e0!3m2!1ses!2sar!4v1625097600000!5m2!1ses!2sar" 
+            title="Mapa del Gran Buenos Aires" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="productos" class="section">
+      <div class="container">
+        <h2>Nuestros Productos</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="https://picsum.photos/300/200?random=1" alt="Zapatillas">
+            <h3>Zapatillas</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">$</p>
+            <a href="https://wa.me/+5491123456789?text=Hola%20BBB,%20quiero%20consultar%20por%20las%20Zapatillas" target="_blank" class="catalog-btn">Catálogo</a>
+        </div>
+          <div class="product-card">
+            <img src="https://picsum.photos/300/200?random=2" alt="Borcegos">
+            <h3>Borcegos</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">$</p>
+            <a href="https://wa.me/+5491123456789?text=Hola%20BBB,%20quiero%20consultar%20por%20los%20Borcegos" target="_blank" class="catalog-btn">Catálogo</a>
+        </div>
+          <div class="product-card">
+            <img src="https://picsum.photos/300/200?random=3" alt="Botas y Botinetas">
+            <h3>Botas y Botinetas</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">$</p>
+            <a href="https://wa.me/+5491123456789?text=Hola%20BBB,%20quiero%20consultar%20por%20las%20Botas%20y%20Botinetas" target="_blank" class="catalog-btn">Catálogo</a>
+        </div>
+          <div class="product-card">
+            <img src="https://picsum.photos/300/200?random=4" alt="Sandalias">
+            <h3>Sandalias</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="price">$</p>
+            <a href="https://wa.me/+5491123456789?text=Hola%20BBB,%20quiero%20consultar%20por%20las%20Sandalias" target="_blank" class="catalog-btn">Catálogo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reseñas" class="section">
+      <div class="container">
+        <h2>Reseñas de Nuestros Clientes</h2>
+        <div class="review-grid">
+          <div class="review-card">
+            <h3>Fulano</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="review-location">Provincia de</p>
+          </div>
+          <div class="review-card">
+            <h3>Mengano</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <p class="review-location">Provincia de</p>
+          </div>
+        </div>
+        <div class="review-centered">
+          <div class="review-card">
+            <h3>Sultano</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+            <p class="review-location">Provincia de</p>
+          </div>
+        </div>
+        <div class="comment-box">
+            <h3>Comentanos tu experiencia de compra</h3>
+            <form id="reviewForm" action="https://formspree.io/tuemail@dominio.com" method="POST">
+                <div class="comment-inputs">
+                    <input type="text" class="form-control comment-name" id="review-name" name="name" placeholder="Tu nombre" required>
+                    <input type="text" class="form-control comment-location" id="review-location" name="location" placeholder="Tu localidad" required>
+                    <select class="form-control comment-stars" id="review-stars" name="stars" required>
+                        <option value="" disabled selected>Calificación</option>
+                        <option value="5">5 estrellas</option>
+                        <option value="4">4 estrellas</option>
+                        <option value="3">3 estrellas</option>
+                        <option value="2">2 estrellas</option>
+                        <option value="1">1 estrella</option>
+                    </select>
+                </div>
+                <textarea class="form-control comment-text" id="review-message" name="message" rows="2" placeholder="Escribe tu reseña aquí..." required></textarea>
+                <div class="comment-buttons">
+                    <button type="submit" class="btn comment-btn">Publicar</button>
+                    <button type="button" class="btn comment-refresh-btn" onclick="document.getElementById('reviewForm').reset()">Cancelar</button>
+                </div>
+            </form>
+            <p class="comment-confirmation" style="display: none;">¡Gracias por tu reseña! La revisaremos pronto.</p>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <div class="container">
+        <h2>Formulario de Contacto</h2>
+        <div class="contact-form">
+          <form id="contactForm" action="https://formspree.io/tuemail@dominio.com" method="POST">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre y Apellido</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre y apellido" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="_replyto" placeholder="tuemail@ejemplo.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Mensaje</label>
+              <textarea class="form-control" id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí" required></textarea>
+            </div>
+            <div class="form-buttons">
+              <button type="button" class="btn refresh-btn" onclick="document.getElementById('contactForm').reset()">Borrar</button>
+                <button type="submit" class="btn contact-btn">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="carrito" class="section">
+      <div class="container">
+        <h2>Carrito de Compras</h2>
+        <div class="cart-container">
+          <table class="table cart-table">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Zapatillas</td>
+                <td>
+                  <div class="quantity-controls">
+                    <button class="quantity-btn decrease">-</button>
+                    <input type="number" value="0" min="0" class="quantity-input">
+                    <button class="quantity-btn increase">+</button>
+                  </div>
+                </td>
+                <td>
+                  <button class="remove-btn">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Borcegos</td>
+                <td>
+                  <div class="quantity-controls">
+                    <button class="quantity-btn decrease">-</button>
+                    <input type="number" value="0" min="0" class="quantity-input">
+                    <button class="quantity-btn increase">+</button>
+                  </div>
+                </td>
+                <td>
+                  <button class="remove-btn">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Botas y Botinetas</td>
+                    <td>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn decrease">-</button>
+                        <input type="number" value="0" min="0" class="quantity-input">
+                        <button class="quantity-btn increase">+</button>
+                    </div>
+                    </td>
+                    <td>
+                    <button class="remove-btn">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Sandalias</td>
+                <td>
+                  <div class="quantity-controls">
+                    <button class="quantity-btn decrease">-</button>
+                    <input type="number" value="0" min="0" class="quantity-input">
+                    <button class="quantity-btn increase">+</button>
+                  </div>
+                </td>
+                <td>
+                  <button class="remove-btn">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+          <div class="cart-summary">
+            <h3>Resumen del Pedido</h3>
+            <p class="cart-note">Nota: Indique la cantidad y el grupo de productos (por ejemplo, "2 zapatillas"). Los precios, detalles de pago y envío se coordinarán por WhatsApp.</p>
+            <a href="https://wa.me/+5491123456789?text=Hola%20BBB,%20quiero%20proceder%20con%20mi%20compra.%20Mi%20pedido%20es:%20(complete%20aquí%20su%20pedido).Por%20favor,%20indíquenme%20los%20precios,%20métodos%20de%20pago%20y%20opciones%20de%20envío." target="_blank" class="checkout-btn">Proceder al Pago</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <p>© 2025 BBB ARG. Todos los derechos reservados.</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.tiktok.com" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </footer>
+
+  <div class="fixed-buttons">
+    <a href="#inicio" class="button-left" title="Volver al inicio">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+    <a href="https://wa.me/+5491123456789?text=Hola%20BBB,%20quiero%20consultar%20por%20el%20catálogo%20de%20productos" target="_blank" class="button-right" title="Contactar por WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+</body>
+
+</html>
