@@ -1,6 +1,30 @@
-# BBB ARG - Pre-entrega Curso de Front-End
-Este proyecto es una página web básica desarrollada como parte de un curso de Front-End. La página está estructurada con HTML semántico y utiliza las etiquetas header, main, y footer para organizar el contenido. El objetivo es aprender a crear la estructura básica de una página web y prepararla para futuras mejoras con CSS y JavaScript.
+# BBB.ARG - Tienda de calzado
 
+Bienvenido/a a **BBB.ARG**, una tienda digital de calzado argentino. Aquí encontrarás zapatillas, borcegos, botas/botinetas y sandalias, con un carrito de compras dinámico y contacto directo por WhatsApp.
+
+## Características
+
+- **Catálogo de productos** dinámico (simulado desde API).
+- **Carrito de compras** persistente con localStorage.
+- **Contador de productos** en el carrito.
+- **Edición y eliminación** de productos en el carrito.
+- **Formulario de contacto** y **reseñas** con validación.
+- **Checkout** directo por WhatsApp.
+- **Diseño responsivo** y moderno (Bootstrap + CSS personalizado).
+- **Accesibilidad** y buenas prácticas SEO.
+
+## Estructura del proyecto
+
+```plaintext
+bbb-arg-tienda/
+│
+├── index.html
+├── style.css
+├── script.js
+├── imagenes/
+│   └── logo.png / logo.ico
+└── README.md
+```
 
 
  
