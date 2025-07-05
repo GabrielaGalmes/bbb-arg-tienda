@@ -2,6 +2,7 @@
 
 ## Estructura
 
+```bash
 BBB.ARG/
 ├── index.html
 ├── styles.css
