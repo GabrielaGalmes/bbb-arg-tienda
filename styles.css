@@ -213,8 +213,8 @@ header {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #CCCCCC;
-    color: black;
+    background: #CCCCCC !important;
+    color: black !important;
     padding: 15px;
     border-radius: 5px;
     display: none;
