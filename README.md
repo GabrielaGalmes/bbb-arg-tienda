@@ -1,4 +1,6 @@
-# BBB.ARG - Tienda de Calzado Urbano
+# BBB.ARG - Tienda de Calzado Urbano 
+
+Pagina para funcionamiento de carrito con localstorage y consumo de API Dummyjson
 
 ## Estructura
 
