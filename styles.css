@@ -224,9 +224,7 @@ header {
 
 footer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
+    padding: 0;
     background-color: #017c8c;
     color: white;
     text-align: center;
