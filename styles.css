@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #f8f9fa;
+    min-height: 100vh;
 }
 
 header {
@@ -160,7 +161,7 @@ header {
     padding: 20px;
     background: white;
     border-top: 1px solid #eee;
-    text-align: right;
+    text-align: right; 
 }
 
 
