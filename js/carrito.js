@@ -1,167 +1,222 @@
-import { getProducts } from './productos.js';
 
+import { getProducts, mostrarAlerta } from './productos.js';
 const CART_KEY = "urbanShoes_cart";
 
-// Obtener carrito
-export const getCart = () => {
-    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-};
+// ========== FUNCIONES BÁSICAS DEL CARRITO ==========
+function getCart() {
+    const data = localStorage.getItem(CART_KEY);
+    return data ? JSON.parse(data) : [];
+}
 
-// Añadir al carrito (con cantidades)
-export const addToCart = (productId) => {
+function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
+
+// ========== OPERACIONES DEL CARRITO ==========
+export function addToCart(productId) {
     const cart = getCart();
     const existingItem = cart.find(item => item.id === productId);
 
     if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity++;
     } else {
         cart.push({ id: productId, quantity: 1 });
     }
-
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    saveCart(cart);
     updateCartCount();
-};
+}
 
-// Actualizar cantidad
-export const updateQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) return removeFromCart(productId);
-
-    const cart = getCart();
-    const item = cart.find(item => item.id === productId);
-    
-    if (item) {
-        item.quantity = newQuantity;
-        localStorage.setItem(CART_KEY, JSON.stringify(cart));
-        updateCartCount();
-    }
-};
-
-// Eliminar producto
-export const removeFromCart = (productId) => {
-    let cart = getCart();
-    cart = cart.filter(item => item.id !== productId);
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    updateCartCount();
-};
-
-// Vaciar carrito
-export const clearCart = () => {
-    localStorage.removeItem(CART_KEY);
-    updateCartCount();
-};
-
-// Actualizar contador
-const updateCartCount = () => {
-    const cart = getCart();
-    const count = cart.reduce((total, item) => total + item.quantity, 0);
-    const countElement = document.getElementById('cart-count');
-    if (countElement) countElement.textContent = count;
-};
-
-// Notificación
-export const showNotification = (message) => {
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = message;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.display = 'block';
-        setTimeout(() => {
-            notification.style.opacity = '0';
-            setTimeout(() => notification.remove(), 300);
-        }, 2000);
-    }, 100);
-};
-
-// Renderizar carrito
-export const renderCart = async () => {
-    const cart = getCart();
-    const products = await getProducts();
-    const container = document.getElementById('cart-items');
-    const totalElement = document.getElementById('cart-total');
-
-    if (!container) return;
-
-    if (cart.length === 0) {
-        container.innerHTML = '<p>Tu carrito está vacío</p>';
-        totalElement.textContent = '0.00';
+export function updateQuantity(productId, newQuantity) {
+    if (newQuantity < 1) {
+        removeFromCart(productId);
         return;
     }
 
-    const cartItems = cart.map(cartItem => {
-        const product = products.find(p => p.id === cartItem.id);
-        return { ...product, quantity: cartItem.quantity };
-    });
+    const cart = getCart();
+    const item = cart.find(item => item.id === productId);
 
-    container.innerHTML = cartItems.map(item => `
-        <div class="cart-item" data-id="${item.id}">
-            <img src="${item.thumbnail}" alt="${item.name}">
-            <div class="cart-item-info">
-                <h3>${item.name}</h3>
-                <p>$${item.price.toFixed(2)}</p>
-                <div class="quantity-controls">
-                    <button class="btn-quantity decrease">-</button>
-                    <span class="quantity">${item.quantity}</span>
-                    <button class="btn-quantity increase">+</button>
-                    <button class="btn-remove">Eliminar</button>
-                </div>
-                <p>Subtotal: $${(item.price * item.quantity).toFixed(2)}</p>
-            </div>
-        </div>
-    `).join('');
+    if (item) {
+        item.quantity = newQuantity;
+        saveCart(cart);
+        updateCartCount();
+    } else {
+        mostrarAlerta("Producto no encontrado en el carrito.");
+    }
+}
 
-    const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    totalElement.textContent = total.toFixed(2);
+export function removeFromCart(productId) {
+    const cart = getCart();
+    const newCart = cart.filter(item => item.id !== productId);
 
-    // Eventos para controles
-    document.querySelectorAll('.decrease').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const productId = parseInt(e.target.closest('.cart-item').dataset.id);
-            const item = cart.find(item => item.id === productId);
-            if (item) updateQuantity(productId, item.quantity - 1);
-            renderCart();
-        });
-    });
+    if (newCart.length !== cart.length) {
+        saveCart(newCart);
+        updateCartCount();
+    } else {
+        mostrarAlerta("Producto no encontrado para eliminar.");
+    }
+}
 
-    document.querySelectorAll('.increase').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const productId = parseInt(e.target.closest('.cart-item').dataset.id);
-            const item = cart.find(item => item.id === productId);
-            if (item) updateQuantity(productId, item.quantity + 1);
-            renderCart();
-        });
-    });
-
-    document.querySelectorAll('.btn-remove').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const productId = parseInt(e.target.closest('.cart-item').dataset.id);
-            removeFromCart(productId);
-            renderCart();
-            showNotification('Producto eliminado');
-        });
-    });
-};
-
-// Inicialización
-document.addEventListener('DOMContentLoaded', () => {
+export function clearCart() {
+    localStorage.removeItem(CART_KEY);
     updateCartCount();
-    
-    if (document.getElementById('cart-items')) {
-        renderCart();
-        
-        document.getElementById('clear-cart').addEventListener('click', () => {
+}
+
+// ========== INTERFAZ DE USUARIO ==========
+export function updateCartCount() {
+    const cart = getCart();
+    const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const countEl = document.getElementById('cart-count');
+    if (countEl) countEl.textContent = total;
+}
+
+export function showNotification(msg, type = 'info') {
+    // Notificación nativa si está disponible y permitida
+    if ("Notification" in window) {
+        if (Notification.permission === "granted") {
+            new Notification("BBB.ARG", {
+                body: msg,
+                icon: "./imagenes/logo.png"
+            });
+            return;
+        } else if (Notification.permission !== "denied") {
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    new Notification("BBB.ARG", {
+                        body: msg,
+                        icon: "./imagenes/logo.png"
+                    });
+                } else {
+                    showCustomNotification(msg, type);
+                }
+            });
+            return;
+        }
+    }
+
+    // Fallback personalizado
+    showCustomNotification(msg, type);
+}
+
+function showCustomNotification(msg, type) {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = msg;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// ========== RENDERIZADO DEL CARRITO ==========
+export async function renderCart() {
+    const [cart, productos] = await Promise.all([getCart(), getProducts()]);
+    const container = document.getElementById('cart-items');
+    const totalEl = document.getElementById('cart-total');
+
+    if (!container || !totalEl) {
+        mostrarAlerta("Elementos del carrito no encontrados en la página.");
+        return;
+    }
+
+    if (cart.length === 0) {
+        container.innerHTML = '<p class="empty-cart">Tu carrito está vacío</p>';
+        totalEl.textContent = '0.00';
+        return;
+    }
+
+    let itemsHTML = '';
+    let total = 0;
+
+    cart.forEach(cartItem => {
+        const product = productos.find(p => p.id === cartItem.id);
+        if (!product) return;
+
+        const subtotal = product.price * cartItem.quantity;
+        total += subtotal;
+
+        itemsHTML += `
+            <div class="cart-item" data-id="${product.id}">
+                <img src="${product.thumbnail}" alt="${product.name}">
+                <div class="item-details">
+                    <h3>${product.name}</h3>
+                    <p>Precio unitario: $${product.price.toFixed(2)}</p>
+                    <div class="quantity-controls">
+                        <button class="btn-quantity decrease">-</button>
+                        <span class="quantity">${cartItem.quantity}</span>
+                        <button class="btn-quantity increase">+</button>
+                        <button class="btn-remove" aria-label="Eliminar producto">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        </div>
+                    <p class="subtotal">Subtotal: $${subtotal.toFixed(2)}</p>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = itemsHTML;
+    totalEl.textContent = total.toFixed(2);
+}
+
+// ========== EVENTOS ==========
+function setupCartListeners() {
+    const container = document.getElementById('cart-items');
+    if (!container) return;
+
+    container.addEventListener('click', (e) => {
+        const itemElement = e.target.closest('.cart-item');
+        if (!itemElement) return;
+
+        const productId = parseInt(itemElement.dataset.id);
+        const cart = getCart();
+        const cartItem = cart.find(item => item.id === productId);
+
+        if (e.target.classList.contains('decrease')) {
+            updateQuantity(productId, cartItem.quantity - 1);
+            renderCart();
+        } else if (e.target.classList.contains('increase')) {
+            updateQuantity(productId, cartItem.quantity + 1);
+            renderCart();
+        } else if (e.target.closest('.btn-remove')) {
+            removeFromCart(productId);
+            showNotification('Producto eliminado', 'warning');
+            renderCart();
+        }
+    });
+
+    const clearBtn = document.getElementById('clear-cart');
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
             clearCart();
             renderCart();
-            showNotification('Carrito vaciado');
-        });
-
-        document.getElementById('checkout').addEventListener('click', () => {
-            showNotification('Compra finalizada ¡Gracias!');
-            setTimeout(() => {
-                clearCart();
-                window.location.href = '../index.html';
-            }, 1500);
+            showNotification('Carrito vaciado', 'info');
         });
     }
+
+    const checkoutBtn = document.getElementById('checkout');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            clearCart();
+            renderCart();
+            showNotification('¡Gracias por tu compra!', 'success');
+
+            // Redirigir al inicio después de 3 segundos
+            setTimeout(() => {
+                window.location.href = '../index.html';
+            }, 3000);
+        });
+    }
+}
+
+// ========== INICIALIZACIÓN ==========
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+
+    // Solo ejecutar si estamos en la página del carrito
+    if (document.getElementById('cart-items') && document.getElementById('cart-total')) {
+        renderCart();
+        setupCartListeners();
+    }
 });
+
