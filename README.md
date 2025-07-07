@@ -10,13 +10,13 @@ BBB.ARG/
 ├── index.html
 ├── styles.css
 ├── imagenes/
-│   ├── logo.ico
-│   └── logo.png
+│   ├── logo.png (vacío)
+│   └── logo.ico (vacío)
 ├── js/
 │   ├── app.js
 │   ├── carrito.js
 │   └── productos.js
-├── paginas/
+|── paginas/
 │   └── carrito.html
 └── README.md
 
