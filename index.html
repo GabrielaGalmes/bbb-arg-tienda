@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,38 +8,33 @@
     <link rel="icon" href="imagenes/logo.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <div class="logo-container">
             <a href="#inicio">
-                <img src="./imagenes/logo.png" alt="Logo de BBB ARG">
+                <img src="./imagenes/logo.png" alt="Logo de BBB.ARG">
             </a>
             <span class="brand-name">BBB.ARG</span>
         </div>
-        
-        <a href="paginas/carrito.html" class="icon-btn">
+        <a href="paginas/carrito.html" class="icon-btn" aria-label="Ver carrito de compras">
             <i class="fas fa-shopping-cart"></i>
-            <span id="cart-count">0</span>
+            <span id="cart-count" class="cart-count-side">0</span>
         </a>
     </header>
-    <main> 
+    <main>
         <section id="inicio" class="section">
             <div class="container text-center">
-                <h1>Bueno BONITO <I>Barato</I></h1>
+                <h1>Bueno BONITO <i>Barato</i></h1>
                 <p>Calzado Urbano</p>
             </div>
-            <div id="products-container" class="products-grid">
-                
-            </div>
+            <div id="products-container" class="products-grid"></div>
         </section>
     </main>
     <footer>
         <p>&copy; BBB.ARG Todos los derechos reservados</p>
     </footer>
-    <script src="js/productos.js" type="module"></script>
     <script src="js/app.js" type="module"></script>
 </body>
 </html>
