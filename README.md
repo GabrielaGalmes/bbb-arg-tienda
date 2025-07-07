@@ -6,7 +6,6 @@ Desarrollado en HTML, CSS y JavaScript.
 
 ## Estructura
 
-```bash
 BBB.ARG/
 ├── index.html
 ├── styles.css
@@ -17,10 +16,9 @@ BBB.ARG/
 │   ├── app.js
 │   ├── carrito.js
 │   └── productos.js
-└── paginas/
+├── paginas/
 │   └── carrito.html
 └── README.md
-```
 
 
  
