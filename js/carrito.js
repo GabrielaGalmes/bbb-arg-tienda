@@ -191,6 +191,11 @@ function setupCartListeners() {
             clearCart();
             renderCart();
             showNotification('Carrito vaciado', 'info');
+
+             // Redirigir al inicio después de 3 segundos
+            setTimeout(() => {
+                window.location.href = '../index.html';
+            }, 3000);
         });
     }
 
