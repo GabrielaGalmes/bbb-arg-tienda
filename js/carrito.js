@@ -2,7 +2,7 @@
 import { getProducts, mostrarAlerta } from './productos.js';
 const CART_KEY = "urbanShoes_cart";
 
-// ========== FUNCIONES BÁSICAS DEL CARRITO ==========
+// Funciones básicas del carrito
 function getCart() {
     const data = localStorage.getItem(CART_KEY);
     return data ? JSON.parse(data) : [];
@@ -12,7 +12,7 @@ function saveCart(cart) {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
-// ========== OPERACIONES DEL CARRITO ==========
+// Operaciones del carrito
 export function addToCart(productId) {
     const cart = getCart();
     const existingItem = cart.find(item => item.id === productId);
@@ -61,7 +61,7 @@ export function clearCart() {
     updateCartCount();
 }
 
-// ========== INTERFAZ DE USUARIO ==========
+// Interfaz
 export function updateCartCount() {
     const cart = getCart();
     const total = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -108,7 +108,7 @@ function showCustomNotification(msg, type) {
     }, 3000);
 }
 
-// ========== RENDERIZADO DEL CARRITO ==========
+// Renderización
 export async function renderCart() {
     const [cart, productos] = await Promise.all([getCart(), getProducts()]);
     const container = document.getElementById('cart-items');
@@ -159,7 +159,7 @@ export async function renderCart() {
     totalEl.textContent = total.toFixed(2);
 }
 
-// ========== EVENTOS ==========
+// Eventos
 function setupCartListeners() {
     const container = document.getElementById('cart-items');
     if (!container) return;
@@ -214,11 +214,11 @@ function setupCartListeners() {
     }
 }
 
-// ========== INICIALIZACIÓN ==========
+// Inicialización
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 
-    // Solo ejecutar si estamos en la página del carrito
+    // Ejecutar sólo si se está en la página del carrito
     if (document.getElementById('cart-items') && document.getElementById('cart-total')) {
         renderCart();
         setupCartListeners();
