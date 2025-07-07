@@ -1,9 +1,8 @@
 
-// Importo funciones desde otros archivos
 import { getProducts } from './productos.js';
 import { addToCart, showNotification, updateCartCount } from './carrito.js';
 
-// Espero que el DOM esté listo antes de hacer nada
+// Esperar que el DOM esté listo 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         // Cargar productos y actualizar interfaz
@@ -31,10 +30,10 @@ function mostrarProductos(lista) {
     const contenedor = document.getElementById("products-container");
     if (!contenedor) return;
 
-    // Vacío el contenedor
+    // Vaciado de contenedor
     contenedor.innerHTML = "";
 
-    // Creo las cards de productos
+    // Creación de las cards de productos
     lista.forEach((prod) => {
         const card = document.createElement('div');
         card.className = 'product-card';
