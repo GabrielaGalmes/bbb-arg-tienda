@@ -1,6 +1,8 @@
+
 # BBB.ARG - Tienda de Calzado Urbano 
 
-Pagina para funcionamiento de carrito con localstorage y consumo de API Dummyjson
+Pagina simple que permite visualizar productos, agregarlos a un carrito, ver su resumen y finalizar la compra; con localstorage y consumo de API Dummyjson.
+Desarrollado en HTML, CSS y JavaScript.
 
 ## Estructura
 
