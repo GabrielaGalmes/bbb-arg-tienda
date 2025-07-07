@@ -1,24 +1,38 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Carrito</title>
-    <link rel="icon" href="imagenes/logo.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBB.ARG</title>
+    <link rel="icon" href="../imagenes/logo.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <header>
-        <h1>Mi Carrito</h1>
-        <a href="../index.html"  class="icon-btn"><i class="fas fa-home"></i></a>
+        <div class="logo-container">
+            <a href="#inicio">
+                <img src="../imagenes/logo.png" alt="Logo de BBB.ARG">
+            </a>
+            <span class="brand-name">Mi Carrito BBB</span>
+        </div>
+        <a href="../index.html" class="icon-btn" aria-label="Volver al inicio">
+            <i class="fas fa-home"></i>
+        </a>
     </header>
     <main>
-        <div id="cart-items" class="cart-container"></div>
+        <div id="alerts-container"></div>
+        <div id="cart-items" class="cart-container">
+            <!-- Los productos del carrito se insertarán aquí dinámicamente -->
+        </div>
         <div class="cart-summary">
             <p>Total: $<span id="cart-total">0.00</span></p>
-            <button id="clear-cart" class="btn btn-danger">Vaciar carrito</button>
-            <button id="checkout" class="btn btn-success">Finalizar compra</button>
+            <div>
+                <button id="clear-cart" class="btn btn-danger">Vaciar carrito</button>
+                <button id="checkout" class="btn btn-success">Finalizar compra</button>
+            </div>
         </div>
     </main>
     <footer>
